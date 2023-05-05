@@ -18,53 +18,36 @@ let object3 = {
   change: []
 }
 
-// function checkCashRegister(price, cash, cid) {
-//   let balance = N - B
-//   let wholeBalance = Math.floor(balance)
-//   let decimalBalance = balance.toString().split('.')[1]
-  
-
-
-// }
-
-
 function cashRegister(B, N, cid) {
 	let balance = N - B
 	let wholeBalance = Math.floor(balance)
 	let decimalBalance = balance - Math.floor(balance)
-  console.log(decimalBalance)
 	let whole = 0,
 			modolus = 0,
 			sum = 0,
 			x = 0,
 			y = 0
 
-	
-	// let whole = 0
-	let mod = 0
-	let res = 0
-	console.log(balance)
 	for (let i = 0; i < cid.length; i++) {
 		sum += cid[i][1]
 	}
-	console.log(sum)
+  console.log(sum)
+  console.log(balance)
 	if (sum < balance) {
 		console.log(object1)
 	} else if (sum === balance) {
 		object3.change = cid
-		console.log(object3)
+    console.log(object3)
 	} else {
     if (cid[7][1] !== 0) {
       whole = Math.floor(wholeBalance/20)
       modolus = wholeBalance % 20
       x = whole * 20
-      console.log("first")
-      console.log(modolus)
-      // test if the number of twenty notes we have to give is greater than what is available
+      // test if the number of twenty notes we have to give is greater than what is available in the cid
       if (x >= cid[7][1]) {
         y = x - cid[7][1]
         cid[7][1] = x - y
-        // console.log(cid[7][1])
+
       } else {
         y = cid[7][1] - x
         cid[7][1] -= y
@@ -72,13 +55,10 @@ function cashRegister(B, N, cid) {
     }
     object2.change.push(cid[7])
   
-    
-    console.log(cid[6])
     if (cid[6][1] !== 0 && cid[7][1] === 0) {
       whole = Math.floor(wholeBalance/10)
       modolus = wholeBalance % 10
       x = whole * 10
-      console.log("else if")
   
       if (x >= cid[6][1]) {
         y = x - cid[6][1]
@@ -87,19 +67,17 @@ function cashRegister(B, N, cid) {
         y = cid[6][1] - x
         cid[6][1] -= y
       }
+
     } else if (cid[6][1] !== 0) {
-      console.log("odolus")
-      console.log(modolus)
+      // in case the number of twenty in the cid < what is needed, we handle the difference
       if(x > cid[7][1]) {
-        console.log("los")
         whole = Math.floor((y + modolus)/10)
       } else {
         whole = Math.floor(modolus/10)
       }
       modolus = modolus % 10
       x = whole * 10
-      console.log(modolus)
-  
+      // test if the amount needed is greater that the available
       if (x >= cid[6][1]) {
         y = x - cid[6][1]
         cid[6][1] = x - y
@@ -108,9 +86,6 @@ function cashRegister(B, N, cid) {
         cid[6][1] -= y
       }
     } 
-    
-    console.log("ten")
-    console.log(cid[6][1])
     object2.change.push(cid[6])
   
     // test if value of key "five" and "ten" are not 0 otherwise we push directly to "cahnge" 
@@ -121,9 +96,6 @@ function cashRegister(B, N, cid) {
         whole = Math.floor(modolus/5)
       }
       modolus = modolus % 5
-      console.log(modolus)
-      console.log(whole)
-      console.log("fiveoff")
       x = whole * 5
   
       if (x >= cid[5][1]) {
@@ -138,7 +110,6 @@ function cashRegister(B, N, cid) {
       whole = Math.floor(wholeBalance/5)
       modolus = wholeBalance % 5
       x = whole * 5
-      console.log("ten zero")
   
       if (x >= cid[5][1]) {
         y = x - cid[5][1]
@@ -152,14 +123,12 @@ function cashRegister(B, N, cid) {
   
     // test if value of key "one" is not 0 otherwise we push directly to "cahnge" 
     if (cid[4][1] !== 0) {
+      // test this to ensure that the program clearly remove what is needed
       if(x > cid[5][1]) {
-        whole = Math.floor((y + modolus)/1)
+        x = y + modolus
       } else {
-        whole = Math.floor(modolus/1)
+        x = modolus
       }
-      modolus = modolus % 1
-      console.log("modolus")
-      x = whole * 1
   
       if (x >= cid[4][1]) {
         y = x - cid[4][1]
@@ -173,7 +142,6 @@ function cashRegister(B, N, cid) {
       whole = Math.floor(wholeBalance/1)
       modolus = wholeBalance % 1
       x = whole * 1
-      console.log("else")
       if (x >= cid[4][1]) {
         y = x - cid[4][1]
         cid[4][1] = x - y
@@ -185,26 +153,132 @@ function cashRegister(B, N, cid) {
     object2.change.push(cid[4])
   
     // handeling the decimal part of the diffence btw N & B (balance)
+    let dB = decimalBalance * 100, // multiply by 100 to take calculate the modolus and ease calculations
+        dBwhole = 0,
+        dBmodolus = 0
 
+    if (cid[3][1] !== 0) {
+      dBwhole = Math.floor(dB/25)
+      dBmodolus = dB  % 25
+      x = (dBwhole * 25)/100 // divide by 100 to come back to the initial value
+      // test if the number of twenty notes we have to give is greater than what is available in the cid
+      if (x >= cid[3][1]) {
+        y = x - cid[3][1]
+        cid[3][1] = x - y
+        // console.log(cid[7][1])
+      } else {
+        y = cid[3][1] - x
+        cid[3][1] -= y
+      }
+    }
+    object2.change.push(cid[3])
 
-    decimalBalance
+    if (cid[2][1] !== 0) {
+      if(x > cid[3][1]) {
+        dBwhole = Math.floor((y + dBmodolus)/10)
+      } else {
+        dBwhole = Math.floor(dBmodolus/10)
+      }
+      dBmodolus = dBmodolus % 10
+      x = (dBwhole * 10)/100
+  
+      if (x >= cid[2][1]) {
+        y = x - cid[2][1]
+        cid[2][1] = +(x - y).toFixed(2)
+      } else {
+        y = cid[2][1] - x
+        cid[2][1] = +(cid[2][1] - y).toFixed(2)
+      }
+    } else if (cid[2][1] !== 0 && cid[3][1] === 0) {
+      dBwhole = Math.floor(dB/10)
+      dBmodolus = dB % 10
+      x = (dBwhole * 10)/100
+  
+      if (x >= cid[2][1]) {
+        y = x - cid[2][1]
+        cid[2][1] = +(x - y).toFixed(2)
+      } else {
+        y = cid[2][1] - x
+        cid[2][1] = +(cid[2][1] - y).toFixed(2)
+      }
+    }
     
+    object2.change.push(cid[2])
+
+    if (cid[1][1] !== 0 && cid[2][1] === 0) {
+      dBwhole = Math.floor(dB/5)
+      dBmodolus = dB % 5
+      x = (dBwhole * 5)/100
+      console.log("xs")
+      console.log(x)
+  
+      if (x >= cid[1][1]) {
+        y = x - cid[1][1]
+        cid[1][1] = +(x - y).toFixed(2)
+        console.log("les")
+      } else {
+        y = cid[1][1] - x
+        console.log(y)
+        cid[1][1] = +(cid[1][1] - y).toFixed(2)
+        console.log("more")
+        console.log(cid[1])
+      }
+
+    } else if (cid[1][1] !== 0) {
+      console.log(y)
+      console.log(dBmodolus)
+      if(x >= cid[2][1]) {
+        console.log("no")
+        dBwhole = Math.floor((y + dBmodolus)/5)
+        console.log(dBwhole)
+      } else {
+        dBwhole = Math.floor(dBmodolus/5)
+      }
+      dBmodolus = dBmodolus % 5
+      x = (dBwhole * 5)/100
+  
+      if (x >= cid[1][1]) {
+        y = x - cid[1][1]
+        cid[1][1] = +(x - y).toFixed(2)
+      } else {
+        y = cid[1][1] - x
+        console.log(x)
+        console.log("trust")
+        cid[1][1] = +(cid[1][1] - y).toFixed(2)
+      }
+    }
+    object2.change.push(cid[1])
+
+    if (cid[0][1] !== 0) {
+      // test this to ensure that the program clearly remove what is needed
+      if(x > cid[1][1]) {
+        x = (y + dBmodolus)/100
+      } else {
+        x = dBmodolus/100
+      }
+  
+      if (x >= cid[0][1]) {
+        y = x - cid[0][1]
+        cid[0][1] = x - y
+      } else {
+        y = cid[0][1] - x
+        cid[0][1] = +(cid[0][1] - y).toFixed(2)
+      }
+
+    } else if (cid[0][1] !== 0 && cid[1][1] === 0) {
+      dBwhole = Math.floor(wholeBalance)
+      x = dBwhole/100
+      if (x >= cid[0][1]) {
+        y = x - cid[0][1]
+        cid[0][1] = x - y
+      } else {
+        y = cid[0][1] - x
+        cid[0][1] = (cid[0][1] - y).toFixed(2)
+      }
+    }
+    object2.change.push(cid[0])
 	  console.log(object2)
-
   }
-
-	// test if value of key "twenty" is not 0 otherwise we push directly to "cahnge" 
-	
-	
-
-
-
-
-
-
-
-	
 }
 
-cashRegister(1.25, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 50], ["TWENTY", 60], ["ONE HUNDRED", 100]])
-// console.log(x)
+cashRegister(11.11, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 40], ["ONE HUNDRED", 100]])

@@ -49,7 +49,6 @@ function cashRegister(B, N, cid) {
       if (x >= cid[7][1]) {
         y = x - cid[7][1]
         cid[7][1] = x - y
-
       } else {
         y = cid[7][1] - x
         cid[7][1] -= y
@@ -58,12 +57,10 @@ function cashRegister(B, N, cid) {
     if (cid[7][1] !== 0) {
       object2.change.push(cid[7])
     }
-  
     if (cid[6][1] !== 0 && cid[7][1] === 0) {
       whole = Math.floor(wholeBalance/10)
       modolus = wholeBalance % 10
       x = whole * 10
-  
       if (x >= cid[6][1]) {
         y = x - cid[6][1]
         cid[6][1] = x - y
@@ -71,7 +68,6 @@ function cashRegister(B, N, cid) {
         y = cid[6][1] - x
         cid[6][1] -= y
       }
-
     } else if (cid[6][1] !== 0) {
       // in case the number of twenty in the cid < what is needed, we handle the difference
       if(x > cid[7][1]) {
@@ -103,7 +99,6 @@ function cashRegister(B, N, cid) {
       }
       modolus = modolus % 5
       x = whole * 5
-  
       if (x >= cid[5][1]) {
         y = x - cid[5][1]
         cid[5][1] = x - y
@@ -111,7 +106,6 @@ function cashRegister(B, N, cid) {
         y = cid[5][1] - x
         cid[5][1] -= y
       }
-  
     } else if (cid[5][1] !== 0 && cid[6][1] === 0) {
       whole = Math.floor(wholeBalance/5)
       modolus = wholeBalance % 5
@@ -137,7 +131,6 @@ function cashRegister(B, N, cid) {
       } else {
         x = modolus
       }
-  
       if (x >= cid[4][1]) {
         y = x - cid[4][1]
         cid[4][1] = x - y
@@ -145,7 +138,6 @@ function cashRegister(B, N, cid) {
         y = cid[4][1] - x
         cid[4][1] -= y
       }
-  
     } else if (cid[4][1] !== 0 && cid[5][1] === 0) {
       whole = Math.floor(wholeBalance/1)
       modolus = wholeBalance % 1
@@ -166,7 +158,6 @@ function cashRegister(B, N, cid) {
     let dB = decimalBalance * 100, // multiply by 100 to take calculate the modolus and ease calculations
         dBwhole = 0,
         dBmodolus = 0
-
     if (cid[3][1] !== 0) {
       dBwhole = Math.floor(dB/25)
       dBmodolus = dB  % 25
@@ -175,7 +166,6 @@ function cashRegister(B, N, cid) {
       if (x >= cid[3][1]) {
         y = x - cid[3][1]
         cid[3][1] = x - y
-        // console.log(cid[7][1])
       } else {
         y = cid[3][1] - x
         cid[3][1] -= y
@@ -184,7 +174,6 @@ function cashRegister(B, N, cid) {
     if (cid[3][1] !== 0) {
       object2.change.push(cid[3])
     }
-
     if (cid[2][1] !== 0) {
       if(x > cid[3][1]) {
         dBwhole = Math.floor((y + dBmodolus)/10)
@@ -192,9 +181,7 @@ function cashRegister(B, N, cid) {
         dBwhole = Math.floor(dBmodolus/10)
       }
       dBmodolus = dBmodolus % 10
-      console.log(`dBmo ${dBmodolus}`)
       x = (dBwhole * 10)/100
-  
       if (x >= cid[2][1]) {
         y = x - cid[2][1]
         cid[2][1] = +(x - y).toFixed(2)
@@ -206,7 +193,6 @@ function cashRegister(B, N, cid) {
       dBwhole = Math.floor(dB/10)
       dBmodolus = dB % 10
       x = (dBwhole * 10)/100
-  
       if (x >= cid[2][1]) {
         y = x - cid[2][1]
         cid[2][1] = +(x - y).toFixed(2)
@@ -218,7 +204,6 @@ function cashRegister(B, N, cid) {
     if (cid[2][1] !== 0) {
       object2.change.push(cid[2])
     }
-
     if (cid[1][1] !== 0) {
       if(x > cid[2][1]) {
         dBwhole = Math.floor((y + dBmodolus)/5)
@@ -227,7 +212,6 @@ function cashRegister(B, N, cid) {
       }
       dBmodolus = dBmodolus % 5
       x = (dBwhole * 5)/100
-  
       if (x >= cid[1][1]) {
         y = x - cid[1][1]
         cid[1][1] = +(x - y).toFixed(2)
@@ -239,7 +223,6 @@ function cashRegister(B, N, cid) {
       dBwhole = Math.floor(dB/5)
       dBmodolus = dB % 10
       x = (dBwhole * 5)/100
-  
       if (x >= cid[1][1]) {
         y = x - cid[1][1]
         cid[1][1] = +(x - y).toFixed(2)
@@ -248,11 +231,9 @@ function cashRegister(B, N, cid) {
         cid[1][1] = +(cid[1][1] - y).toFixed(2)
       }
     }
-
     if (cid[1][1] !== 0) {
       object2.change.push(cid[1])
     }
-
     if (cid[0][1] !== 0) {
       if(x > cid[1][1]) {
         dBwhole = Math.floor((y + dBmodolus))
@@ -261,7 +242,6 @@ function cashRegister(B, N, cid) {
       }
       dBmodolus = dBmodolus % 1
       x = (dBwhole * 1)/100
-  
       if (x >= cid[0][1]) {
         y = x - cid[0][1]
         cid[0][1] = +(x - y).toFixed(2)
@@ -273,7 +253,6 @@ function cashRegister(B, N, cid) {
       dBwhole = Math.floor(dB/1)
       dBmodolus = dB % 1
       x = (dBwhole * 1)/100
-  
       if (x >= cid[0][1]) {
         y = x - cid[0][1]
         cid[0][1] = +(x - y).toFixed(2)
@@ -285,9 +264,6 @@ function cashRegister(B, N, cid) {
     if (cid[0][1] !== 0) {
       object2.change.push(cid[0])
     }
-    
-
-
     console.log(object2)
   }
   for (let i=0; i<cid.length; i++) {

@@ -1,7 +1,8 @@
-// let B = document.querySelector('.bill').value
-// let N = document.querySelector('.payment').value
-// let currencyNotesDisplay = document.querySelector('.display')
-// let cashRegisterState = document.querySelector('.cash_register_state')
+
+let currencyNotesDisplay = document.querySelector('.display')
+// let cid = document.querySelector('.cash_register_state')
+
+// let cid = [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]
 
 let object1 = {
   status: "INSUFFICIENT_FUND",
@@ -18,28 +19,43 @@ let object3 = {
   change: []
 }
 
-function cashRegister(B, N, cid) {
-  let CID = cid
-  console.log(CID)
-	let balance = N - B
-	let wholeBalance = Math.floor(balance)
-	let decimalBalance = balance - Math.floor(balance)
-	let whole = 0,
-			modolus = 0,
-			sum = 0,
+function cashRegister() {
+  let cid[0][1] = +document.querySelector('#penny').value,
+      cid[1][1] = +document.querySelector('#nickel').value,
+      cid[2][1] = +document.querySelector('#dime').value,
+      cid[3][1] = +document.querySelector('#quarter').value,
+      cid[4][1] = +document.querySelector('#one').value,
+      cid[5][1] = +document.querySelector('#five').value,
+      cid[6][1] = +document.querySelector('#ten').value,
+      cid[7][1] = +document.querySelector('#twenty').value,
+      B = +document.querySelector('.bill').value,
+      N = +document.querySelector('.payment').value,
+      balance = N - B,
+      wholeBalance = Math.floor(balance),
+      decimalBalance = balance - Math.floor(balance),
+      whole = 0,
+      modolus = 0,
+      sum = 0,
 			x = 0,
 			y = 0
-
-	for (let i = 0; i < cid.length; i++) {
-		sum += cid[i][1]
-	}
-  console.log(sum)
+  // let CID =cid
+  
+  console.log(typeof N)
+  console.log(N)
+  console.log(typeof B)
+  console.log(B)
+  console.log(typeof balance)
   console.log(balance)
+	for (let i = 0; i < cid.length; i++) {
+		sum = +(sum + cid[i][1]).toFixed(2)
+	}
 	if (sum < balance) {
-		console.log(object1)
+		document.querySelector('.display').innerHTML = JSON.stringify(object1)
+    // console.log(object1)
 	} else if (sum === balance) {
 		object3.change = cid
-    console.log(object3)
+    document.querySelector('.display').innerHTML = JSON.stringify(object3)
+    // console.log(object3)
 	} else {
     if (cid[7][1] !== 0) {
       whole = Math.floor(wholeBalance/20)
@@ -87,6 +103,9 @@ function cashRegister(B, N, cid) {
       }
     } 
     if (cid[6][1] !== 0) {
+      console.log(cid[6])
+      console.log(cid[6][1])
+      console.log(typeof cid[6][1])
       object2.change.push(cid[6])
     }
   
@@ -264,12 +283,63 @@ function cashRegister(B, N, cid) {
     if (cid[0][1] !== 0) {
       object2.change.push(cid[0])
     }
+    document.querySelector('.display-currency-notes').innerHTML = `
+    <h4> Your change is </h4>
+    <div class="cid">
+      <label for="penny">PENNY</label>
+      <input type="number" value="${cid[0][1]}" class="input">
+    </div>
+    <div class="cid">
+      <label for="nickel">NICKEL</label>
+      <input type="number" value="${cid[1][1]}" class="input">
+    </div>
+    <div class="cid">
+      <label for="dime">DIME</label>
+      <input type="number" value="${cid[2][1]}" class="input">
+    </div>
+    <div class="cid">
+      <label for="quarter">QUARTE</label>
+      <input type="number" value="${cid[3][1]}" class="input">
+    </div>
+    <div class="cid">
+      <label for="one">ONE</label>
+      <input type="number" value="${cid[4][1]}" class="input">
+    </div>
+    <div class="cid">
+      <label for="five">FIVE</label>
+      <input type="number" value="${cid[5][1]}" class="input">
+    </div>
+    <div class="cid">
+      <label for="ten">TEN</label>
+      <input type="number" value="${cid[6][1]}" class="input">
+    </div>
+    <div class="cid">
+      <label for="twenty">TWENTY</label>
+      <input type="number" value="${cid[7][1]}" class="input">
+    </div>
+    <div class="cid">
+      <label for="onehundred">ONE HUNDRED</label>
+      <input type="number" value="${cid[8][1]}" class="input">
+    </div>`
+    console.log(cid[1])
+    console.log(cid[2])
+    console.log(cid[3])
+    console.log(cid[4])
+    console.log(cid[5])
+    console.log(cid[7])
     console.log(object2)
+    for (let i=0; i<cid.length; i++) {
+      cid[i][1] = CID[i][1] - cid[i][1]
+    }
+    console.log(cid)
+    console.log(CID)
   }
-  for (let i=0; i<cid.length; i++) {
-    cid[i][1] = CID[i][1] - cid[i][1]
-  }
-  // console.log(cid)
+  
+  console.log(cid)
+
+  // document.querySelector('.my_cid').innerHTML = JSON.stringify(object2)
+
+  
 }
 
-cashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]])
+// cashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]])

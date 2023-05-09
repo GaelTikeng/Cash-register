@@ -8,21 +8,55 @@
   <title>Cash register</title>
 </head>
 <body>
-  <form class="maincontainer">
-    <label for="name" class="name">Name</label>
-    <input type="number" placeholder="Enter the total bill" class="bill">
-    <label for="payment" class="payment">Payment</label>
-    <input type="number" placeholder="Enter payment" class="payment">
-    <label for="cash_register" class="cd-state">Cash register state</label>
-    <div class="cash_register_state">
-      
+  <h3>Cash-in-Drawer</h3>
+  <div class="my_cid">
+    
+    <div class="cid">
+      <label for="penny">PENNY</label>
+      <input type="number" class="input" id="penny">
     </div>
-
-    <input type="submit" value="Change" class="submit">
-  </form>
-  <div class="display-currency-notes">
-
+    <div class="cid">
+      <label for="nickel">NICKEL</label>
+      <input type="number" class="input" id="nickel">
+    </div>
+    <div class="cid">
+      <label for="dime">DIME</label>
+      <input type="number" class="input" id="dime">
+    </div>
+    <div class="cid">
+      <label for="quarter">QUARTE</label>
+      <input type="number" class="input" id="quarter">
+    </div>
+    <div class="cid">
+      <label for="one">ONE</label>
+      <input type="number" class="input" id="one">
+    </div>
+    <div class="cid">
+      <label for="five">FIVE</label>
+      <input type="number" class="input" id="five">
+    </div>
+    <div class="cid">
+      <label for="ten">TEN</label>
+      <input type="number" class="input" id="ten">
+    </div>
+    <div class="cid">
+      <label for="twenty">TWENTY</label>
+      <input type="number" class="input" id="twenty">
+    </div>
   </div>
+  <form class="maincontainer">
+    <label for="name" class="name">Bill</label>
+    <input type="number" placeholder="Enter the total bill" class="bill">
+    <label for="payment" class="pay">Payment</label>
+    <input type="number" placeholder="Enter payment" class="payment">
+    <!-- <label for="cash_register" class="cd-state">Cash register state</label> -->
+    <div class="cash_register_state"></div>
+
+    <div class="change_btn"><input type="submit" value="Change" class="submit" onclick = "cashRegister()"></div>
+  </form>
+  <div class="display-currency-notes"></div>
+  <div class="display"></div>
+  
 
   <script src="main.js"></script>
 </body>

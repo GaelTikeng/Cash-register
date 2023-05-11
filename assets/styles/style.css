@@ -51,13 +51,18 @@ input {
   width: 70px;
 }
 
-.my_cid {
+.my-cid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 70%;
   margin: 0 auto;
   background: red;
+}
+
+.display-text {
+  width: 70%;
+  margin: 0 auto;
 }
 
 h3 {
@@ -69,7 +74,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   background:yellow;
 }

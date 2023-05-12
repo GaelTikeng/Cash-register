@@ -10,12 +10,37 @@ body {
 
 }
 
+.all-iterms {
+  width: 70%;
+  margin: 10px auto;
+  border: 1px solid black;
+}
+
+.my-cid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* width: 70%; */
+  margin: 0 auto;
+  background: red;
+}
+
+.cid {
+  display: flex;
+  flex-direction: column;
+}
+
 .maincontainer {
   padding: 20px 0;
-  align-self: center;
-  width: 70%;
+  /* width: 70%; */
   margin: 0 auto;
   background: green;
+}
+
+#form {
+  width: 70%;
+  margin: 0 auto;
+  /* background-color: orange; */
 }
 
 label {
@@ -31,7 +56,7 @@ input {
   padding: 10px;
 }
 
-.change_btn {
+.change-btn {
   display: flex;
   justify-content: center;
 }
@@ -42,26 +67,12 @@ input {
   cursor: pointer;
 }
 
-.cid {
-  display: flex;
-  flex-direction: column;
-}
-
 .input {
   width: 70px;
 }
 
-.my-cid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 70%;
-  margin: 0 auto;
-  background: red;
-}
-
 .display-text {
-  width: 70%;
+  /* width: 70%; */
   margin: 0 auto;
 }
 

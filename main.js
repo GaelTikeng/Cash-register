@@ -103,7 +103,8 @@ function cashRegister() {
     if (arr[5] !== 0) {
       if (x > arr[6]) {
         whole = Math.floor((modolus + y)/5)
-      } else {
+      }
+      else {
         whole = Math.floor(modolus/5)
       }
       modolus = modolus % 5
@@ -111,11 +112,13 @@ function cashRegister() {
       if (x >= arr[5]) {
         y = x - arr[5]
         arr[5] = x - y
-      } else {
+      }
+      else {
         y = arr[5] - x
         arr[5] -= y
       }
-    } else if (arr[5] !== 0 && arr[6] === 0) {
+    }
+    else if (arr[5] !== 0 && arr[6] === 0) {
       whole = Math.floor(wholeBalance/5)
       modolus = wholeBalance % 5
       x = whole * 5
@@ -134,7 +137,7 @@ function cashRegister() {
     // test if value of key "one" is not 0 otherwise we push directly to "change" 
     if (arr[4] !== 0) {
       // test this to ensure that the program clearly remove what is needed
-      if(x > arr[5]) {
+      if (x > arr[5]) {
         x = y + modolus
       }
 			else {
@@ -188,7 +191,8 @@ function cashRegister() {
     if (arr[2] !== 0) {
       if(x > arr[3]) {
         dBwhole = Math.floor((y + dBmodolus)/10)
-      } else {
+      }
+      else {
         dBwhole = Math.floor(dBmodolus/10)
       }
       dBmodolus = dBmodolus % 10
@@ -196,7 +200,8 @@ function cashRegister() {
       if (x >= arr[2]) {
         y = x - arr[2]
         arr[2] = +(x - y).toFixed(2)
-      } else {
+      }
+      else {
         y = arr[2] - x
         arr[2] = +(arr[2] - y).toFixed(2)
       }
@@ -218,7 +223,7 @@ function cashRegister() {
     object2.change.push(cid[2])
 
     if (arr[1] !== 0) {
-      if(x > arr[2]) {
+      if (x > arr[2]) {
         dBwhole = Math.floor((y + dBmodolus)/5)
       }
 			else {
@@ -251,7 +256,7 @@ function cashRegister() {
     cid[1][1] = arr[1]
     object2.change.push(cid[1])
     if (arr[0] !== 0) {
-      if(x > arr[1]) {
+      if (x > arr[1]) {
         dBwhole = Math.floor((y + dBmodolus))
       }
 			else {
@@ -328,7 +333,23 @@ function cashRegister() {
 		document.getElementById('quarter').value = `${d - arr[3]}`
 		document.getElementById('one').value = `${e - arr[4]}`
 		document.getElementById('five').value = `${f - arr[5]}`
-		document.getElementById('ren').value = `${g - arr[6]}`
+		document.getElementById('ten').value = `${g - arr[6]}`
     document.getElementById('twenty').value = `${h - arr[7]}`
-  }
+		
+	  saveData ()
+		// localStorage.setItem("")
+  } 
 }
+
+function saveData () {
+	// let cid = document.querySelector('.my-cid')
+	// let change = document.querySelector('.display-text')
+	// localStorage.setItem('data', change.innerHTML)
+	// localStorage.setItem('input', cid.innerHTML)
+}
+
+function showTask () {
+	// document.querySelector('.display-text').innerHTML = localStorage.getItem('data')
+	// document.querySelector('.my-cid').innerHTML = localStorage.getItem('input')
+}
+showTask ()

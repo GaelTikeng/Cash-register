@@ -36,6 +36,7 @@ function cashRegister() {
       sum = 0,
 			x = 0,
 			y = 0
+  localStorage.setItem('cash-in-drawer', JSON.stringify(arr));
   // let CID =cid
 	for (let i = 0; i < arr.length; i++) {
 		sum = +(sum + arr[i]).toFixed(2)
@@ -335,21 +336,16 @@ function cashRegister() {
 		document.getElementById('five').value = `${f - arr[5]}`
 		document.getElementById('ten').value = `${g - arr[6]}`
     document.getElementById('twenty').value = `${h - arr[7]}`
+
+    // let newValues  = [x0, x1, x3]
+    // let x0 = document.getElementById('penny').value,
+    //     x1 = document.getElementById('nickel').value,
+    //     x2 = document.getElementById('dime').value,
+    
+        
+
 		
-	  saveData ()
-		// localStorage.setItem("")
+    // update the localStorage with the new values of the cid
+    localStorage.setItem('cash-in-drawer', JSON.stringify(newValues));
   } 
 }
-
-function saveData () {
-	// let cid = document.querySelector('.my-cid')
-	// let change = document.querySelector('.display-text')
-	// localStorage.setItem('data', change.innerHTML)
-	// localStorage.setItem('input', cid.innerHTML)
-}
-
-function showTask () {
-	// document.querySelector('.display-text').innerHTML = localStorage.getItem('data')
-	// document.querySelector('.my-cid').innerHTML = localStorage.getItem('input')
-}
-showTask ()

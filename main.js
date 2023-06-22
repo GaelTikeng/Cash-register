@@ -1,4 +1,3 @@
-const currencyNotesDisplay = document.querySelector(".display");
 const cid = [
   ['PENNY', 0],
   ['NICKEL', 0],
@@ -8,50 +7,54 @@ const cid = [
   ['FIVE', 0],
   ['TEN', 0],
   ['TWENTY', 0],
-  ['ONE HUNDRED', 0],
-];
+  ['ONE HUNDRED', 0]
+]
 
 const object1 = {
   status: 'INSUFFICIENT_FUND',
-  change: [],
-};
+  change: []
+}
 
 const object2 = {
   status: 'OPEN',
-  change: [],
-};
+  change: []
+}
 
 const object3 = {
   status: 'CLOSED',
-  change: [],
-};
+  change: []
+}
 
 function cashRegister() {
   const a = +document.querySelector('#penny').value,
     b = +document.querySelector('#nickel').value,
     c = +document.querySelector('#dime').value,
-    d = +document.querySelector("#quarter").value,
-    e = +document.querySelector("#one").value,
-    f = +document.querySelector("#five").value,
-    g = +document.querySelector("#ten").value,
-    h = +document.querySelector("#twenty").value,
-    B = +document.querySelector(".bill").value,
-    N = +document.querySelector(".payment").value,
+    d = +document.querySelector('#quarter').value,
+    e = +document.querySelector('#one').value,
+    f = +document.querySelector('#five').value,
+    g = +document.querySelector('#ten').value,
+    h = +document.querySelector('#twenty').value,
+    B = +document.querySelector('.bill').value,
+    N = +document.querySelector('.payment').value,
     balance = N - B,
     wholeBalance = Math.floor(balance),
     decimalBalance = balance - Math.floor(balance),
-    arr = [a, b, c, d, e, f, g, h]; // cash-in-drawer (cid)
-    (whole = 0), (modolus = 0), (sum = 0), (x = 0), (y = 0);
+    arr = [a, b, c, d, e, f, g, h], // cash-in-drawer (cid)
+    whole = 0,
+    modolus = 0,
+    sum = 0,
+    x = 0,
+    y = 0
 
   // loop through the array cid and sum all leaving the sum to two decimal places
   for (let i = 0; i < arr.length; i++) {
     sum = +(sum + arr[i]).toFixed(2);
   }
   if (sum < balance) {
-    document.querySelector(".display").innerHTML = JSON.stringify(object1);
+    document.querySelector('.display').innerHTML = JSON.stringify(object1);
   } else if (sum === balance) {
     object3.change = cid;
-    document.querySelector(".display").innerHTML = JSON.stringify(object3);
+    document.querySelector('.display').innerHTML = JSON.stringify(object3);
   } else {
     if (arr[7] !== 0) {
       whole = Math.floor(wholeBalance / 20);

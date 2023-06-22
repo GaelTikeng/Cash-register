@@ -55,7 +55,8 @@ function cashRegister() {
   } else if (sum === balance) {
     object3.change = cid;
     document.querySelector('.display').innerHTML = JSON.stringify(object3);
-  } else {
+  }
+  else {
     if (arr[7] !== 0) {
       whole = Math.floor(wholeBalance / 20);
       modolus = wholeBalance % 20;
@@ -65,7 +66,8 @@ function cashRegister() {
       if (x >= arr[7]) {
         y = x - arr[7];
         arr[7] = x - y; // we update the cid variable with all what is available
-      } else {
+      }
+      else {
         y = arr[7] - x;
         arr[7] -= y;
       }
@@ -79,15 +81,18 @@ function cashRegister() {
       if (x >= arr[6]) {
         y = x - arr[6];
         arr[6] = x - y;
-      } else {
+      }
+      else {
         y = arr[6] - x;
         arr[6] -= y;
       }
-    } else if (arr[6] !== 0) {
+    }
+    else if (arr[6] !== 0) {
       // in case the number of twenty in the cid < what is needed, we handle the difference
       if (x > arr[7]) {
         whole = Math.floor((y + modolus) / 10);
-      } else {
+      }
+      else {
         whole = Math.floor(modolus / 10);
       }
       modolus = modolus % 10;
@@ -96,7 +101,8 @@ function cashRegister() {
       if (x >= arr[6]) {
         y = x - arr[6];
         arr[6] = x - y;
-      } else {
+      }
+      else {
         y = arr[6] - x;
         arr[6] -= y;
       }
@@ -108,7 +114,8 @@ function cashRegister() {
     if (arr[5] !== 0) {
       if (x > arr[6]) {
         whole = Math.floor((modolus + y) / 5);
-      } else {
+      }
+      else {
         whole = Math.floor(modolus / 5);
       }
       modolus = modolus % 5;
@@ -116,18 +123,21 @@ function cashRegister() {
       if (x >= arr[5]) {
         y = x - arr[5];
         arr[5] = x - y;
-      } else {
+      }
+      else {
         y = arr[5] - x;
         arr[5] -= y;
       }
-    } else if (arr[5] !== 0 && arr[6] === 0) {
+    }
+    else if (arr[5] !== 0 && arr[6] === 0) {
       whole = Math.floor(wholeBalance / 5);
       modolus = wholeBalance % 5;
       x = whole * 5;
       if (x >= arr[5]) {
         y = x - arr[5];
         arr[5] = x - y;
-      } else {
+      }
+      else {
         y = arr[5] - x;
         arr[5] -= y;
       }
@@ -140,24 +150,28 @@ function cashRegister() {
       // test this to ensure that the program clearly remove what is needed
       if (x > arr[5]) {
         x = y + modolus;
-      } else {
+      }
+      else {
         x = modolus;
       }
       if (x >= arr[4]) {
         y = x - arr[4];
         arr[4] = x - y;
-      } else {
+      }
+      else {
         y = arr[4] - x;
         arr[4] -= y;
       }
-    } else if (arr[4] !== 0 && arr[5] === 0) {
+    }
+    else if (arr[4] !== 0 && arr[5] === 0) {
       whole = Math.floor(wholeBalance / 1);
       modolus = wholeBalance % 1;
       x = whole * 1;
       if (x >= arr[4]) {
         y = x - arr[4];
         arr[4] = x - y;
-      } else {
+      }
+      else {
         y = arr[4] - x;
         arr[4] -= y;
       }
@@ -177,7 +191,8 @@ function cashRegister() {
       if (x >= arr[3]) {
         y = x - arr[3];
         arr[3] = x - y;
-      } else {
+      }
+      else {
         y = arr[3] - x;
         arr[3] -= y;
       }
@@ -187,7 +202,8 @@ function cashRegister() {
     if (arr[2] !== 0) {
       if (x > arr[3]) {
         dBwhole = Math.floor((y + dBmodolus) / 10);
-      } else {
+      }
+      else {
         dBwhole = Math.floor(dBmodolus / 10);
       }
       dBmodolus = dBmodolus % 10;
@@ -195,18 +211,21 @@ function cashRegister() {
       if (x >= arr[2]) {
         y = x - arr[2];
         arr[2] = +(x - y).toFixed(2);
-      } else {
+      }
+      else {
         y = arr[2] - x;
         arr[2] = +(arr[2] - y).toFixed(2);
       }
-    } else if (arr[2] !== 0 && arr[3] === 0) {
+    }
+    else if (arr[2] !== 0 && arr[3] === 0) {
       dBwhole = Math.floor(dB / 10);
       dBmodolus = dB % 10;
       x = (dBwhole * 10) / 100;
       if (x >= arr[2]) {
         y = x - arr[2];
         arr[2] = +(x - y).toFixed(2);
-      } else {
+      }
+      else {
         y = arr[2] - x;
         arr[2] = +(arr[2] - y).toFixed(2);
       }
@@ -217,7 +236,8 @@ function cashRegister() {
     if (arr[1] !== 0) {
       if (x > arr[2]) {
         dBwhole = Math.floor((y + dBmodolus) / 5);
-      } else {
+      }
+      else {
         dBwhole = Math.floor(dBmodolus / 5);
       }
       dBmodolus = dBmodolus % 5;
@@ -225,18 +245,21 @@ function cashRegister() {
       if (x >= arr[1]) {
         y = x - arr[1];
         arr[1] = +(x - y).toFixed(2);
-      } else {
+      }
+      else {
         y = arr[1] - x;
         arr[1] = +(arr[1] - y).toFixed(2);
       }
-    } else if (arr[1] !== 0 && arr[2] === 0) {
+    }
+    else if (arr[1] !== 0 && arr[2] === 0) {
       dBwhole = Math.floor(dB / 5);
       dBmodolus = dB % 10;
       x = (dBwhole * 5) / 100;
       if (x >= arr[1]) {
         y = x - arr[1];
         arr[1] = +(x - y).toFixed(2);
-      } else {
+      }
+      else {
         y = arr[1] - x;
         arr[1] = +(arr[1][1] - y).toFixed(2);
       }
@@ -246,7 +269,8 @@ function cashRegister() {
     if (arr[0] !== 0) {
       if (x > arr[1]) {
         dBwhole = Math.floor(y + dBmodolus);
-      } else {
+      }
+      else {
         dBwhole = Math.floor(dBmodolus);
       }
       dBmodolus = dBmodolus % 1;
@@ -254,18 +278,21 @@ function cashRegister() {
       if (x >= arr[0]) {
         y = x - arr[0];
         arr[0] = +(x - y).toFixed(2);
-      } else {
+      }
+      else {
         y = arr[0] - x;
         arr[0] = +(arr[0] - y).toFixed(2);
       }
-    } else if (arr[0] !== 0 && arr[1] === 0) {
+    }
+    else if (arr[0] !== 0 && arr[1] === 0) {
       dBwhole = Math.floor(dB / 1);
       dBmodolus = dB % 1;
       x = (dBwhole * 1) / 100;
       if (x >= arr[0]) {
         y = x - arr[0];
         arr[0] = +(x - y).toFixed(2);
-      } else {
+      }
+      else {
         y = arr[0] - x;
         arr[0] = +(arr[0] - y).toFixed(2);
       }
@@ -311,14 +338,14 @@ function cashRegister() {
     </div>`;
 
     // we are updating the values of the cid to display the current cid
-    document.getElementById("penny").value = `${a - arr[0]}`;
-    document.getElementById("nickel").value = `${b - arr[1]}`;
-    document.getElementById("dime").value = `${c - arr[2]}`;
-    document.getElementById("quarter").value = `${d - arr[3]}`;
-    document.getElementById("one").value = `${e - arr[4]}`;
-    document.getElementById("five").value = `${f - arr[5]}`;
-    document.getElementById("ten").value = `${g - arr[6]}`;
-    document.getElementById("twenty").value = `${h - arr[7]}`;
+    document.getElementById('penny').value = `${a - arr[0]}`;
+    document.getElementById('nickel').value = `${b - arr[1]}`;
+    document.getElementById('dime').value = `${c - arr[2]}`;
+    document.getElementById('quarter').value = `${d - arr[3]}`;
+    document.getElementById('one').value = `${e - arr[4]}`;
+    document.getElementById('five').value = `${f - arr[5]}`;
+    document.getElementById('ten').value = `${g - arr[6]}`;
+    document.getElementById('twenty').value = `${h - arr[7]}`;
 
     // let newValues  = [x0, x1, x3]
     // let x0 = document.getElementById('penny').value,
@@ -326,6 +353,6 @@ function cashRegister() {
     //     x2 = document.getElementById('dime').value,
 
     // update the localStorage with the new values of the cid
-    localStorage.setItem("cash-in-drawer", JSON.stringify(newValues));
+    localStorage.setItem('cash-in-drawer', JSON.stringify(newValues));
   }
 }

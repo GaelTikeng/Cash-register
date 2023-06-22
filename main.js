@@ -25,26 +25,26 @@ const object3 = {
   change: []
 }
 
-function cashRegister() {
-  const a = +document.querySelector('#penny').value,
-    b = +document.querySelector('#nickel').value,
-    c = +document.querySelector('#dime').value,
-    d = +document.querySelector('#quarter').value,
-    e = +document.querySelector('#one').value,
-    f = +document.querySelector('#five').value,
-    g = +document.querySelector('#ten').value,
-    h = +document.querySelector('#twenty').value,
-    B = +document.querySelector('.bill').value,
-    N = +document.querySelector('.payment').value,
-    balance = N - B,
-    wholeBalance = Math.floor(balance),
-    decimalBalance = balance - Math.floor(balance),
-    arr = [a, b, c, d, e, f, g, h], // cash-in-drawer (cid)
-    whole = 0,
-    modolus = 0,
-    sum = 0,
-    x = 0,
-    y = 0
+function cashRegister () {
+  const a = +document.querySelector('#penny').value
+  const b = +document.querySelector('#nickel').value
+  const c = +document.querySelector('#dime').value
+  const d = +document.querySelector('#quarter').value
+  const e = +document.querySelector('#one').value
+  const f = +document.querySelector('#five').value
+  const g = +document.querySelector('#ten').value
+  const h = +document.querySelector('#twenty').value
+  const B = +document.querySelector('.bill').value
+  const N = +document.querySelector('.payment').value
+  const balance = N - B
+  const wholeBalance = Math.floor(balance)
+  const decimalBalance = balance - Math.floor(balance)
+  const arr = [a, b, c, d, e, f, g, h] // cash-in-drawer (cid)
+  const whole = 0
+  const modolus = 0
+  const sum = 0
+  const x = 0
+  const y = 0
 
   // loop through the array cid and sum all leaving the sum to two decimal places
   for (let i = 0; i < arr.length; i++) {
@@ -52,7 +52,8 @@ function cashRegister() {
   }
   if (sum < balance) {
     document.querySelector('.display').innerHTML = JSON.stringify(object1);
-  } else if (sum === balance) {
+  }
+  else if (sum === balance) {
     object3.change = cid
     document.querySelector('.display').innerHTML = JSON.stringify(object3);
   }

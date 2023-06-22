@@ -1,23 +1,23 @@
 const currencyNotesDisplay = document.querySelector('.display')
-let cid = [["PENNY", 0], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]
+const cid = [["PENNY", 0], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]];
 
 const object1 = {
-  status: "INSUFFICIENT_FUND",
+  status: 'INSUFFICIENT_FUND',
   change: []
 }
 
 const object2 = {
-  status: "OPEN",
+  status: 'OPEN',
   change: []
 }
 
 const object3 = {
-  status: "CLOSED",
+  status: 'CLOSED',
   change: []
 }
 
-function cashRegister() {
-  let a = +document.querySelector('#penny').value,
+function cashRegister () {
+  const a = +document.querySelector('#penny').value,
       b = +document.querySelector('#nickel').value,
       c = +document.querySelector('#dime').value,
       d = +document.querySelector('#quarter').value,

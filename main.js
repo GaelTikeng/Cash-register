@@ -37,9 +37,9 @@ function cashRegister () {
   const B = +document.querySelector('.bill').value
   const N = +document.querySelector('.payment').value
   const balance = N - B
-  let wholeBalance = Math.floor(balance)
-  let decimalBalance = balance - Math.floor(balance)
-  let arr = [a, b, c, d, e, f, g, h] // cash-in-drawer (cid)
+  const arr = [a, b, c, d, e, f, g, h] // cash-in-drawer (cid)
+  const wholeBalance = Math.floor(balance)
+  const decimalBalance = balance - Math.floor(balance)
   let whole = 0
   let modolus = 0
   let sum = 0
@@ -181,9 +181,9 @@ function cashRegister () {
     object2.change.push(cid[4])
 
     // handeling the decimal part of the diffence btw N & B (balance)
-    let dB = decimalBalance * 100, // multiply by 100 to take calculate the modolus and ease calculations
-      dBwhole = 0,
-      dBmodolus = 0
+    const dB = decimalBalance * 100 // multiply by 100 to take calculate the modolus and ease calculations
+    const dBwhole = 0
+    const dBmodolus = 0
 
     if (arr[3] !== 0) {
       dBwhole = Math.floor(dB / 25)
@@ -256,7 +256,7 @@ function cashRegister () {
     else if (arr[1] !== 0 && arr[2] === 0) {
       dBwhole = Math.floor(dB / 5)
       dBmodolus = dB % 10
-      x = (dBwhole * 5) / 100;
+      x = (dBwhole * 5) / 100
       if (x >= arr[1]) {
         y = x - arr[1]
         arr[1] = +(x - y).toFixed(2)
@@ -280,23 +280,20 @@ function cashRegister () {
       if (x >= arr[0]) {
         y = x - arr[0]
         arr[0] = +(x - y).toFixed(2)
-      }
-      else {
+      } else {
         y = arr[0] - x
         arr[0] = +(arr[0] - y).toFixed(2)
       }
-    }
-    else if (arr[0] !== 0 && arr[1] === 0) {
+    } else if (arr[0] !== 0 && arr[1] === 0) {
       dBwhole = Math.floor(dB / 1)
       dBmodolus = dB % 1
       x = (dBwhole * 1) / 100
       if (x >= arr[0]) {
         y = x - arr[0]
         arr[0] = +(x - y).toFixed(2)
-      }
-      else {
+      } else {
         y = arr[0] - x
-        arr[0] = +(arr[0] - y).toFixed(2);
+        arr[0] = +(arr[0] - y).toFixed(2)
       }
     }
     cid[0][1] = arr[0]
@@ -354,6 +351,6 @@ function cashRegister () {
     //     x2 = document.getElementById('dime').value,
 
     // update the localStorage with the new values of the cid
-    localStorage.setItem('cash-in-drawer', JSON.stringify(newValues))
+    // localStorage.setItem('cash-in-drawer', JSON.stringify(newValues))
   }
 }

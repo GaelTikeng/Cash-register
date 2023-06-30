@@ -29,7 +29,7 @@ hr {
   margin: 10px auto;
   padding: 15px 0;
   border-radius: 10px;
-  background: #7b5a08a2;
+  background: #f1f1f1;
   box-shadow: 0 5px 7px 0 #222020;
 }
 
@@ -86,7 +86,10 @@ input {
   margin-top: 30px;
   padding: 10px 25px;
   cursor: pointer;
-  color: #7b5b08;
+  color: #000;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 3px 8px #000;
 }
 
 .input {

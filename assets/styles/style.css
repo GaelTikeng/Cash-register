@@ -17,7 +17,7 @@ h1 {
 }
 
 hr {
-  width: 85%;
+  width: 65%;
   margin: 0 auto;
   height: 1px;
   background-color: #000000f5;
@@ -59,7 +59,7 @@ hr {
 }
 
 #form {
-  width: 70%;
+  width: 69%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -125,6 +125,10 @@ h3 {
   #form {
     display: flex;
     flex-direction: column;
+  }
+
+  hr {
+    width: 90%;
   }
 
   .name,

@@ -1,3 +1,4 @@
+// aAn array that stores all the different notes and coins
 const cid = [
   ['PENNY', 0],
   ['NICKEL', 0],
@@ -274,6 +275,8 @@ function cashRegister () {
     cid[0][1] = arr[0]
     object2.change.push(cid[0])
 
+    // We display the result (cid array)
+
     document.querySelector('.display-text').innerHTML = `<h3>Your change</h3>
     <div class="display-currency-notes">
       <div class="cid">
@@ -319,13 +322,5 @@ function cashRegister () {
     document.getElementById('five').value = `${f - arr[5]}`
     document.getElementById('ten').value = `${g - arr[6]}`
     document.getElementById('twenty').value = `${h - arr[7]}`
-
-    // let newValues  = [x0, x1, x3]
-    // let x0 = document.getElementById('penny').value,
-    //     x1 = document.getElementById('nickel').value,
-    //     x2 = document.getElementById('dime').value,
-
-    // update the localStorage with the new values of the cid
-    // localStorage.setItem('cash-in-drawer', JSON.stringify(newValues))
   }
 }

@@ -101,8 +101,13 @@ input {
 }
 
 h3 {
-  padding-top: 25px;
+  padding: 25px 0 15px 0;
   text-align: center;
+}
+
+p {
+  text-align: center;
+  padding: 10px 0;
 }
 
 .display-currency-notes {

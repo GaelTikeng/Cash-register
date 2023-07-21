@@ -1,3 +1,4 @@
+const chance = document.querySelector('.submit')
 // aAn array that stores all the different notes and coins
 const cid = [
   ['PENNY', 0],
@@ -26,7 +27,8 @@ const object3 = {
   change: []
 }
 
-function cashRegister () {
+change.addEventListener('click', () => {
+  // e.preventDefault()
   const a = +document.querySelector('#penny').value
   const b = +document.querySelector('#nickel').value
   const c = +document.querySelector('#dime').value
@@ -277,7 +279,7 @@ function cashRegister () {
 
     // We display the result (cid array)
 
-    document.querySelector('.display-text').innerHTML = `<h3>Your change</h3>
+    document.querySelector('.display-text').innerHTML = `<p>Status : <b>OPEN</b></p>
     <div class="display-currency-notes">
       <div class="cid">
         <label for="penny">PENNY</label>
@@ -323,4 +325,4 @@ function cashRegister () {
     document.getElementById('ten').value = `${g - arr[6]}`
     document.getElementById('twenty').value = `${h - arr[7]}`
   }
-}
+})

@@ -28,7 +28,7 @@ const object3 = {
   change: []
 }
 
-// change.addEventListener('click', cashRegister())
+change.addEventListener('click', cashRegister())
 function cashRegister () {
   // e.preventDefault()
   const a = +document.querySelector('#penny').value

@@ -1,68 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/styles/style.css">
-  <title>Cash register</title>
-</head>
-<body>
-  <div class="all-iterms">
-    <h1>Cash register App</h1>
-    <hr>
-    <h3>Current Cash-in-Drawer</h3>
-    <div class="my-cid">
-      <div class="cid">
-        <label for="penny">PENNY</label>
-        <input type="number" class="input" id="penny" value="1.01">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <title>Cash register</title>
+  </head>
+  <body>
+    <div class="all-iterms">
+      <h1>Cash register App</h1>
+      <hr />
+      <h3>Current Cash-in-Drawer</h3>
+      <div class="my-cid">
+        <div class="cid">
+          <label for="penny">PENNY</label>
+          <input type="number" class="input" id="penny" value="1.01" />
+        </div>
+        <div class="cid">
+          <label for="nickel">NICKEL</label>
+          <input type="number" class="input" id="nickel" value="2.05" />
+        </div>
+        <div class="cid">
+          <label for="dime">DIME</label>
+          <input type="number" class="input" id="dime" value="3.1" />
+        </div>
+        <div class="cid">
+          <label for="quarter">QUARTE</label>
+          <input type="number" class="input" id="quarter" value="4.25" />
+        </div>
+        <div class="cid">
+          <label for="one">ONE</label>
+          <input type="number" class="input" id="one" value="90" />
+        </div>
+        <div class="cid">
+          <label for="five">FIVE</label>
+          <input type="number" class="input" id="five" value="55" />
+        </div>
+        <div class="cid">
+          <label for="ten">TEN</label>
+          <input type="number" class="input" id="ten" value="60" />
+        </div>
+        <div class="cid">
+          <label for="twenty">TWENTY</label>
+          <input type="number" class="input" id="twenty" value="80" />
+        </div>
+        <div class="cid">
+          <label for="hundred">ONE_HUNDRED</label>
+          <input type="number" class="input" id="hundred" value="100" />
+        </div>
       </div>
-      <div class="cid">
-        <label for="nickel">NICKEL</label>
-        <input type="number" class="input" id="nickel" value="2.05">
+      <div class="maincontainer">
+        <div id="form">
+          <label for="name" class="name">Bill:</label>
+          <input
+            type="number"
+            placeholder="Enter the total bill"
+            class="bill"
+          />
+          <label for="payment" class="pay" step="1">Payment:</label>
+          <input type="number" placeholder="Enter payment" class="payment" />
+        </div>
+        <div class="change-btn">
+          <input
+            type="submit"
+            value="Change"
+            class="submit"
+            onclick="cashRegister()"
+          />
+        </div>
       </div>
-      <div class="cid">
-        <label for="dime">DIME</label>
-        <input type="number" class="input" id="dime" value="3.1">
-      </div>
-      <div class="cid">
-        <label for="quarter">QUARTE</label>
-        <input type="number" class="input" id="quarter" value="4.25">
-      </div>
-      <div class="cid">
-        <label for="one">ONE</label>
-        <input type="number" class="input" id="one" value="90">
-      </div>
-      <div class="cid">
-        <label for="five">FIVE</label>
-        <input type="number" class="input" id="five" value="55">
-      </div>
-      <div class="cid">
-        <label for="ten">TEN</label>
-        <input type="number" class="input" id="ten" value="60">
-      </div>
-      <div class="cid">
-        <label for="twenty">TWENTY</label>
-        <input type="number" class="input" id="twenty" value="80">
-      </div>
-      <div class="cid">
-        <label for="hundred">ONE_HUNDRED</label>
-        <input type="number" class="input" id="hundred" value="100">
-      </div>
+      <div class="negative"></div>
+      <div class="display-text"></div>
+      <div class="display"></div>
     </div>
-    <div class="maincontainer">
-      <div id="form">
-        <label for="name" class="name">Bill:</label>
-        <input type="number" placeholder="Enter the total bill" class="bill">
-        <label for="payment" class="pay" step="1" >Payment:</label>
-        <input type="number" placeholder="Enter payment" class="payment">
-      </div>
-      <div class="change-btn"><input type="submit" value="Change" class="submit" onclick = "cashRegister()"></div>
-    </div>
-    <div class="negative"></div>
-    <div class="display-text"></div>
-    <div class="display"></div>
-  </div>
-  <script src="./assets/script/main.js"></script>
-</body>
+    <script src="./assets/script/main.js"></script>
+  </body>
 </html>

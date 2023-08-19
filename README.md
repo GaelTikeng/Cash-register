@@ -22,3 +22,5 @@ Cash register is built with :
 * HTML
 * CSS
 * JavaScript
+***
+Check out the app here [https://gaeltikeng.github.io/Cash-register/](https://gaeltikeng.github.io/Cash-register/)

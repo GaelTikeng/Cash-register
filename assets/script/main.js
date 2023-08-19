@@ -1,3 +1,5 @@
+// const change = document.querySelector('.submit')
+
 // aAn array that stores all the different notes and coins
 const cid = [
   ['PENNY', 0],
@@ -26,6 +28,7 @@ const object3 = {
   change: []
 }
 
+// change.addEventListener('click', cashRegister())
 function cashRegister () {
   // e.preventDefault()
   const a = +document.querySelector('#penny').value
@@ -58,7 +61,9 @@ function cashRegister () {
   } else if (sum === balance) {
     object3.change = cid
     document.querySelector('.display').innerHTML = JSON.stringify(object3)
-  } else {
+  } else if (balance < 0) {
+    document.querySelector('.negative').innerHTML = 'Payment cannot be greater than bill'
+  } else {    
     if (arr[7] !== 0) {
       whole = Math.floor(wholeBalance / 20)
       modolus = wholeBalance % 20
@@ -329,4 +334,5 @@ function cashRegister () {
     document.getElementById('ten').value = `${g - arr[6]}`
     document.getElementById('twenty').value = `${h - arr[7]}`
   }
+  
 }

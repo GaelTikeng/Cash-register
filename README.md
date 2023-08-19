@@ -1,6 +1,6 @@
 # Cash Register App
 ## About the app
-Cash register is an app used to give the user's change after a purchase of an item in a shop. The app has tree inputs : 
+Cash register is an app used to give the user's change after a purchase of an item in a shop. The app has tree inputs :
 * Current cash-in-drawer : This is where the total money present in the cash-in-drawer (CID) is filled by the user.
 * Bill
 * Payment

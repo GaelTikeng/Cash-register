@@ -12,7 +12,7 @@
     <h1>Cash register App</h1>
     <hr>
     <h3>Current Cash-in-Drawer</h3>
-    <form class="my-cid">
+    <div class="my-cid">
       <div class="cid">
         <label for="penny">PENNY</label>
         <input type="number" class="input" id="penny" value="1.01">
@@ -49,16 +49,17 @@
         <label for="hundred">ONE_HUNDRED</label>
         <input type="number" class="input" id="hundred" value="100">
       </div>
-    </form>
-    <form class="maincontainer">
+    </div>
+    <div class="maincontainer">
       <div id="form">
         <label for="name" class="name">Bill:</label>
-        <input type="number" placeholder="Enter the total bill. ex: 15.0" class="bill">
-        <label for="payment" class="pay">Payment:</label>
+        <input type="number" placeholder="Enter the total bill" class="bill">
+        <label for="payment" class="pay" step="1" >Payment:</label>
         <input type="number" placeholder="Enter payment" class="payment">
       </div>
       <div class="change-btn"><input type="submit" value="Change" class="submit" onclick = "cashRegister()"></div>
-    </form>
+    </div>
+    <div class="negative"></div>
     <div class="display-text"></div>
     <div class="display"></div>
   </div>

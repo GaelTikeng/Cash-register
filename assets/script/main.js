@@ -1,4 +1,3 @@
-const chance = document.querySelector('.submit')
 // aAn array that stores all the different notes and coins
 const cid = [
   ['PENNY', 0],
@@ -27,7 +26,7 @@ const object3 = {
   change: []
 }
 
-change.addEventListener('click', () => {
+function cashRegister () {
   // e.preventDefault()
   const a = +document.querySelector('#penny').value
   const b = +document.querySelector('#nickel').value
@@ -37,6 +36,7 @@ change.addEventListener('click', () => {
   const f = +document.querySelector('#five').value
   const g = +document.querySelector('#ten').value
   const h = +document.querySelector('#twenty').value
+  const k = +document.querySelector('#hundred').value
   const B = +document.querySelector('.bill').value
   const N = +document.querySelector('.payment').value
   const balance = N - B
@@ -313,6 +313,10 @@ change.addEventListener('click', () => {
         <label for="twenty">TWENTY</label>
         <input type="number" value="${cid[7][1]}" class="input">
       </div>
+      <div class="cid">
+        <label for="twenty">ONE_HUNDRED</label>
+        <input type="number" value="${cid[8][1]}" class="input">
+      </div>
     </div>`
 
     // we are updating the values of the cid to display the current cid
@@ -325,4 +329,4 @@ change.addEventListener('click', () => {
     document.getElementById('ten').value = `${g - arr[6]}`
     document.getElementById('twenty').value = `${h - arr[7]}`
   }
-})
+}

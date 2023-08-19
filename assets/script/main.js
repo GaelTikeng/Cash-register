@@ -1,6 +1,4 @@
- feature/body
 // const change = document.querySelector('.submit')
-
 // aAn array that stores all the different notes and coins
 const cid = [
   ['PENNY', 0],
@@ -29,7 +27,7 @@ const object3 = {
   change: []
 }
 
-change.addEventListener('click', cashRegister())
+// change.addEventListener('click', cashRegister())
 function cashRegister () {
   // e.preventDefault()
   const a = +document.querySelector('#penny').value

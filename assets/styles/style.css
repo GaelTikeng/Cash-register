@@ -10,23 +10,146 @@ body {
 
 }
 
-.maincontainer {
-  width: 300px;
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+hr {
+  width: 80%;
+  margin: 0 auto;
+  height: 1px;
+  background-color: #000000f5;
+  border: none;
+}
+
+.all-iterms {
+  width: 70%;
+  margin: 10px auto;
+  padding: 15px 0;
+  border-radius: 10px;
+  background: #f1f1f1;
+  box-shadow: 0 5px 7px 0 #222020;
+}
+
+.my-cid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.cid {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  border: 1px solid #000;
+}
+
+#currency-nodes {
+  padding: 10px 0;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+.maincontainer {
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+#form {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 label {
   padding: 10px 0;
 }
 
+.bill,
+.payment {
+  width: 200px;
+}
+
 input {
   padding: 10px;
 }
 
+.change-btn {
+  display: flex;
+  justify-content: center;
+}
+
 .submit {
-  width: 100px;
-  margin: 30px auto;
+  margin-top: 30px;
+  padding: 10px 25px;
+  cursor: pointer;
+  color: #000;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 3px 8px #000;
+}
+
+.input {
+  width: 70px;
+}
+
+.display-text {
+  margin: 0 auto;
+}
+
+.negative {
+  text-align: center;
+  font-size: 20px;
+  color: red;
+  font-style: italic;
+}
+
+h3 {
+  padding: 25px 0 15px 0;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.display-currency-notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.display {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .all-iterms {
+    width: 96vw;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  hr {
+    width: 90%;
+  }
+
+  .name,
+  .pay,
+  .bill,
+  .payment {
+    margin: 0 auto;
+  }
 }

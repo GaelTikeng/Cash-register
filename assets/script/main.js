@@ -66,23 +66,29 @@ function cashRegister () {
     if (arr[7] !== 0) {
       whole = Math.floor(wholeBalance / 20)
       modolus = wholeBalance % 20
-      x = whole * 20 // gives us the number of twenty bank note we have to give as change
+      x = whole  // gives us the total amount of twenty bank note we have to give as change
 
-      // test if the number of twenty notes is greater than what is available in the cid
+      // test if the total amount of twenty notes is greater than what is available in the cid
       if (x >= arr[7]) {
         y = x - arr[7]
-        arr[7] = x - y // we update the cid variable with all what is available
+        arr[7] = (x - y) // we update the cid variable with all what is available
+        console.log("first", arr[7])
       } else {
         y = arr[7] - x
         arr[7] -= y
+        console.log("second:", arr[7])
+
       }
     }
     cid[7][1] = arr[7]
     object2.change.push(cid[7])
+
+    // TEN
+
     if (arr[6] !== 0 && arr[7] === 0) {
       whole = Math.floor(wholeBalance / 10)
       modolus = wholeBalance % 10
-      x = whole * 10
+      x = whole
       if (x >= arr[6]) {
         y = x - arr[6]
         arr[6] = x - y
@@ -98,7 +104,7 @@ function cashRegister () {
         whole = Math.floor(modolus / 10)
       }
       modolus = modolus % 10
-      x = whole * 10
+      x = whole
       // test if the amount needed is greater that the available
       if (x >= arr[6]) {
         y = x - arr[6]
@@ -119,7 +125,7 @@ function cashRegister () {
         whole = Math.floor(modolus / 5)
       }
       modolus = modolus % 5
-      x = whole * 5
+      x = whole
       if (x >= arr[5]) {
         y = x - arr[5]
         arr[5] = x - y
@@ -130,7 +136,7 @@ function cashRegister () {
     } else if (arr[5] !== 0 && arr[6] === 0) {
       whole = Math.floor(wholeBalance / 5)
       modolus = wholeBalance % 5
-      x = whole * 5
+      x = whole
       if (x >= arr[5]) {
         y = x - arr[5]
         arr[5] = x - y
@@ -158,9 +164,9 @@ function cashRegister () {
         arr[4] -= y
       }
     } else if (arr[4] !== 0 && arr[5] === 0) {
-      whole = Math.floor(wholeBalance / 1)
+      whole = Math.floor(wholeBalance)
       modolus = wholeBalance % 1
-      x = whole * 1
+      x = whole
       if (x >= arr[4]) {
         y = x - arr[4]
         arr[4] = x - y
@@ -177,10 +183,12 @@ function cashRegister () {
     let dBwhole = 0
     let dBmodolus = 0
 
+    // QUARTER
+
     if (arr[3] !== 0) {
       dBwhole = Math.floor(dB / 25)
       dBmodolus = dB % 25
-      x = (dBwhole * 25) / 100 // divide by 100 to come back to the initial value
+      x = (dBwhole) // divide by 100 to come back to the initial value
       // test if the number of twenty notes we have to give is greater than what is available in the cid
       if (x >= arr[3]) {
         y = x - arr[3]
@@ -192,6 +200,9 @@ function cashRegister () {
     }
     cid[3][1] = arr[3]
     object2.change.push(cid[3])
+
+    // DIME
+
     if (arr[2] !== 0) {
       if (x > arr[3]) {
         dBwhole = Math.floor((y + dBmodolus) / 10)
@@ -199,7 +210,7 @@ function cashRegister () {
         dBwhole = Math.floor(dBmodolus / 10)
       }
       dBmodolus = dBmodolus % 10
-      x = (dBwhole * 10) / 100
+      x = (dBwhole)
       if (x >= arr[2]) {
         y = x - arr[2]
         arr[2] = +(x - y).toFixed(2)
@@ -210,7 +221,7 @@ function cashRegister () {
     } else if (arr[2] !== 0 && arr[3] === 0) {
       dBwhole = Math.floor(dB / 10)
       dBmodolus = dB % 10
-      x = (dBwhole * 10) / 100
+      x = dBwhole
       if (x >= arr[2]) {
         y = x - arr[2]
         arr[2] = +(x - y).toFixed(2)
@@ -229,7 +240,7 @@ function cashRegister () {
         dBwhole = Math.floor(dBmodolus / 5)
       }
       dBmodolus = dBmodolus % 5
-      x = (dBwhole * 5) / 100
+      x = dBwhole
       if (x >= arr[1]) {
         y = x - arr[1]
         arr[1] = +(x - y).toFixed(2)
@@ -240,7 +251,7 @@ function cashRegister () {
     } else if (arr[1] !== 0 && arr[2] === 0) {
       dBwhole = Math.floor(dB / 5)
       dBmodolus = dB % 10
-      x = (dBwhole * 5) / 100
+      x = dBwhole
       if (x >= arr[1]) {
         y = x - arr[1]
         arr[1] = +(x - y).toFixed(2)
@@ -258,7 +269,7 @@ function cashRegister () {
         dBwhole = Math.floor(dBmodolus)
       }
       dBmodolus = dBmodolus % 1
-      x = (dBwhole * 1) / 100
+      x = dBwhole
       if (x >= arr[0]) {
         y = x - arr[0]
         arr[0] = +(x - y).toFixed(2)
@@ -269,7 +280,7 @@ function cashRegister () {
     } else if (arr[0] !== 0 && arr[1] === 0) {
       dBwhole = Math.floor(dB / 1)
       dBmodolus = dB % 1
-      x = (dBwhole * 1) / 100
+      x = dBwhole
       if (x >= arr[0]) {
         y = x - arr[0]
         arr[0] = +(x - y).toFixed(2)
@@ -324,6 +335,7 @@ function cashRegister () {
     </div>`
 
     // we are updating the values of the cid to display the current cid
+    // console.log("down", arr[7])
     document.getElementById('penny').value = `${a - arr[0]}`
     document.getElementById('nickel').value = `${b - arr[1]}`
     document.getElementById('dime').value = `${c - arr[2]}`
